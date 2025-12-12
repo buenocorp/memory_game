@@ -1,16 +1,11 @@
 FROM tomcat:10.1-jdk17
 
-# Limpa webapps padrão
+# Remove apps padrão
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copia JSPs
-COPY ./WebContent/ /usr/local/tomcat/webapps/ROOT/
-
-# Copia servlets compilados
-COPY ./WebContent/WEB-INF/classes /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
-
-# Copia web.xml
-COPY ./WebContent/WEB-INF/web.xml /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml
+# Copia o WAR exportado do Eclipse
+COPY Memoria.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]
