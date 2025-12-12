@@ -1,0 +1,4 @@
+Controller/MemoryGameServlet.class
+Controller/ResetGameServlet.class
+Model/QuestionPair.class
+Model/Card.class
