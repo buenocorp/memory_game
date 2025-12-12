@@ -1,9 +1,9 @@
-FROM tomcat:9-jdk17-temurin
+FROM tomcat:10.1-jdk17
 
-# Remove ROOT padrão e copia seu WAR/arquivos
+# Remove webapps padrão
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copie seu projeto para o Tomcat
+# Copia seu projeto para o Tomcat
 COPY ./src/main/webapp /usr/local/tomcat/webapps/ROOT
 
 EXPOSE 8080
